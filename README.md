@@ -141,25 +141,40 @@ target_modules = ["query", "key", "value", "dense", "mlp"]  # ~3-5% parameters
 - Dramatically changing model behavior
 - When you have unlimited compute
 
+## Documentation
+
+For comprehensive guides and best practices, see:
+
+- **[MLX Fine-Tuning Research Guide](docs/MLX_FINETUNING_RESEARCH_GUIDE.md)** - Complete research guide covering training configurations, loss curves, optimization strategies, and production deployment
+- **[Embedding LoRA Guide](docs/EMBEDDING_LORA_GUIDE.md)** - Specialized guide for fine-tuning embedding models with LoRA for semantic search and retrieval tasks
+- **[Walmart-Amazon Training Guide](docs/WALMART_AMAZON_TRAINING_GUIDE.md)** - Real-world product matching use case with complete training pipeline
+
 ## Project Structure
 
 ```
 mlx-finetuning/
-├── README.md                 # This file
+├── README.md                           # This file
+├── CONTRIBUTING.md                     # Contributing guidelines
+├── requirements.txt                    # Python dependencies
 ├── docs/
-│   ├── lora-explained.md    # Deep dive into LoRA
-│   ├── training-guide.md    # Comprehensive training guide
-│   └── evaluation.md        # Evaluation best practices
+│   ├── MLX_FINETUNING_RESEARCH_GUIDE.md   # Research guide & best practices
+│   ├── EMBEDDING_LORA_GUIDE.md            # Embedding model fine-tuning
+│   └── WALMART_AMAZON_TRAINING_GUIDE.md   # Product matching use case
 ├── scripts/
-│   ├── train.py            # Training script
-│   ├── evaluate.py         # Evaluation script
-│   └── llm_benchmark.py    # LLM-as-a-Judge evaluation
+│   ├── run_finetune.py                 # Main fine-tuning script
+│   ├── download_model.py               # Download MLX models
+│   ├── download_judgelm.py             # Download JudgeLM dataset
+│   ├── evaluate_judge_model.py         # Evaluate judge models
+│   ├── evaluate_model_detailed.py      # Detailed evaluation
+│   ├── llm_judge_benchmark.py          # LLM-as-a-Judge benchmark
+│   ├── train_embedding_lora.py         # Embedding-specific training
+│   ├── upload_to_hf.py                 # Upload to HuggingFace
+│   ├── compare_models.py               # Model comparison
+│   └── test_judge.py                   # Test judge outputs
 ├── examples/
-│   ├── quick-start.sh      # Quick start example
-│   ├── judge-model/        # Judge model fine-tuning
-│   └── custom-task/        # Template for custom tasks
+│   └── quick-start.sh                  # Quick start example
 └── data/
-    └── README.md           # Data format documentation
+    └── README.md                       # Data format documentation
 ```
 
 ## Training Guide
